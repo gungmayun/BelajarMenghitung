@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_pengurangan"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background1"
+    tools:context=".PenguranganActivity">
+
+    <ImageButton
+        android:id="@+id/soal"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:background="@drawable/kurang1"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/soal" />
+    <ImageButton
+        android:id="@+id/jawaban1"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/no1"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/soal"
+        android:layout_toLeftOf="@id/jawaban2"
+        android:layout_margin="10dp"
+        android:contentDescription="@string/jawaban1"
+        android:layout_toStartOf="@id/jawaban2" />
+
+    <ImageButton
+        android:id="@+id/jawaban2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/no2"
+        android:layout_toLeftOf="@+id/tengah"
+        android:layout_below="@+id/soal"
+        android:layout_margin="10dp"
+        android:contentDescription="@string/jawaban2" />
+
+    <ImageButton
+        android:id="@+id/jawaban3"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/no3"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/soal"
+        android:layout_toRightOf="@+id/tengah"
+        android:layout_margin="10dp"
+        android:contentDescription="@string/jawaban3"
+        android:layout_toEndOf="@+id/jawaban2" />
+
+    <ImageButton
+        android:id="@+id/jawaban4"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/no4"
+        android:layout_below="@+id/soal"
+        android:layout_toRightOf="@+id/jawaban3"
+        android:layout_margin="10dp"
+        android:contentDescription="@string/jawaban3"
+        android:layout_toEndOf="@+id/jawaban3" />
+
+    <TextView
+        android:id="@+id/nilai"
+        android:textColor="@color/colorSkor"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/soal"
+        android:text="@string/skor" />
+
+    <ImageButton
+        android:id="@+id/buttonBack"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/back"
+        android:contentDescription="@string/back"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="."
+        android:id="@+id/tengah"
+        android:layout_below="@+id/soal"
+        android:layout_marginTop="40dp"
+        />
+
+</RelativeLayout>

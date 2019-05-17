@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/about_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background1"
+    tools:context=".AboutActivity">
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="230dp"
+        android:id="@+id/foto_agungchyawan"
+        android:layout_toLeftOf="@id/titik"
+        android:layout_centerVertical="true"
+        android:background="@drawable/pakagungcahyawan" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/titik"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:id="@+id/description"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlack"
+        android:layout_toRightOf="@id/titik"
+        android:text="Puji syukur kehadirat Tuhan Yang Maha Esa, karena telah memberikan kesehatan jasmani dan rohani, sehingga penulis dapat menyelesaikan tugas besar mata kuliah Pemrograman Mobile. Tidak lupa pula terima kasih kepada Bpk. A. A. Ketut Agung Cahyawan Wiranatha,S.T.,M.T. selaku dosen pengampu mata kuliah Pemograman Mobile karena beliau dengan senantiasa membimbing programmer di dalam kelas dan penyusunan aplikasi ini."/>
+
+</RelativeLayout>

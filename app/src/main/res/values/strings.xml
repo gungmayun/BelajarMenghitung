@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">BelajarMenghitung</string>
+    <string name="titik">.</string>
+    <string name="button1">TODO</string>
+    <string name="button2">button2</string>
+    <string name="pembagian">TODO</string>
+    <string name="perkalian">TODO</string>
+    <string name="pengurangan">TODO</string>
+    <string name="penambahan">TODO</string>
+    <string name="about">about</string>
+    <string name="exit">exit</string>
+    <string name="back">back</string>
+    <string name="soal">TODO</string>
+    <string name="jawaban1">TODO</string>
+    <string name="jawaban2">TODO</string>
+    <string name="jawaban3">TODO</string>
+    <string name="skor">SKOR :</string>
+</resources>

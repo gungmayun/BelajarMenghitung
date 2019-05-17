@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".MainActivity">
+
+    <ImageButton
+        android:id="@+id/imageLogo"
+        android:layout_width="600dp"
+        android:layout_height="100dp"
+        android:layout_above="@+id/titik"
+        android:layout_marginBottom="40dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/logo"
+        android:contentDescription="@string/button2" />
+
+    <TextView
+        android:id="@+id/titik"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/titik"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
+
+    <ImageButton
+        android:id="@+id/buttonPlay"
+        android:layout_width="100dp"
+        android:layout_height="90dp"
+        android:layout_below="@+id/titik"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/book"
+        android:contentDescription="@string/button1" />
+
+    <ImageButton
+        android:id="@+id/buttonAbout"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/info"
+        android:contentDescription="@string/about" />
+
+    <ImageButton
+        android:id="@+id/buttonExit"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/cancel"
+        android:contentDescription="@string/exit" />
+</RelativeLayout>
