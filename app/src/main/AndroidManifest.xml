@@ -36,7 +36,20 @@
         <activity
             android:name=".PembagianActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".AboutActivity"
+        <activity
+            android:name=".AboutActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".HighScoreBagiActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".HighScoreKaliActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".HighScoreKurangActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".HighScoreTambahActivity"
             android:screenOrientation="landscape" />
     </application>
 

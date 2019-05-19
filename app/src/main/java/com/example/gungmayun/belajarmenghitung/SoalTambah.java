@@ -15,6 +15,19 @@ public class SoalTambah {
             R.drawable.tambah9,
             R.drawable.tambah10
     };
+
+    private int ListPilihan[][]={
+        {R.drawable.no2, R.drawable.no4, R.drawable.no10, R.drawable.no1},
+        {R.drawable.no10, R.drawable.no8, R.drawable.no5, R.drawable.no12},
+        {R.drawable.no3, R.drawable.no4, R.drawable.no7, R.drawable.no6},
+        {R.drawable.no10, R.drawable.no1, R.drawable.no6, R.drawable.no9},
+        {R.drawable.no12, R.drawable.no5, R.drawable.no3, R.drawable.no4},
+        {R.drawable.no4, R.drawable.no3, R.drawable.no1, R.drawable.no6},
+        {R.drawable.no7, R.drawable.no1, R.drawable.no10, R.drawable.no12},
+        {R.drawable.no6, R.drawable.no8, R.drawable.no9, R.drawable.no1},
+        {R.drawable.no9, R.drawable.no7, R.drawable.no10, R.drawable.no3},
+        {R.drawable.no12, R.drawable.no4, R.drawable.no2, R.drawable.no5}
+    };
     private int ListJawaban[] = {
             R.drawable.no2,
             R.drawable.no5,
@@ -28,27 +41,25 @@ public class SoalTambah {
             R.drawable.no12,
     };
 
-    public int[] getListSoal(){
-       return ListSoal;
-    }
-    public int[] getListJawaban(){
-        return ListJawaban;
+    public int getJumlahSoal(){
+      return ListSoal.length;
     }
 
-    public int getrandomsoal(){
-        int random = new Random().nextInt(ListSoal.length);
-        return random;
+    public int getSoal(int a){
+        return ListSoal[a];
     }
-    public int getimagesoal(int i){
-        return ListSoal[i];
+
+    public int getListSoal(int index){
+        int soal = ListSoal[index];
+        return soal;
     }
-    public int getimagejawaban(int i){
-        return ListJawaban[i];
+
+    public int getPilihan(int index, int num){
+        int pilihan = ListPilihan[index][num-1];
+        return pilihan;
     }
-    public int getjumlahsoal(){
-        return ListSoal.length;
-    }
-    public int getjumlahjawaban(){
-        return ListJawaban.length;
+    public int getJawaban(int a){
+        int jawaban = ListJawaban[a];
+        return jawaban;
     }
 }

@@ -1,5 +1,6 @@
 package com.example.gungmayun.belajarmenghitung;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,17 +14,13 @@ import java.util.Random;
 
 public class PerkalianActivity extends AppCompatActivity {
 
-    ImageButton pilih;
-    ImageButton jwbn1, jwbn2, jwbn3, jwbn4;
-    ImageView soal;
-    int s,s1,j1,j2,j3,j4;
-    int skor=0;
-
-    SoalKali soalKali = new SoalKali();
-    int n = soalKali.getjumlahsoal();
-
-    boolean jawabanbenar = true;
-    int i = 0;
+    private SoalKali soalKali = new SoalKali();
+    private TextView Skor;
+    private ImageView soal;
+    private ImageButton jwbn1, jwbn2, jwbn3, jwbn4;
+    private int jawabanBenar;
+    private int skor = 0;
+    private int nomorSoal = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +28,7 @@ public class PerkalianActivity extends AppCompatActivity {
         setContentView(R.layout.activity_perkalian);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        Skor = (TextView) findViewById(R.id.nilai);
         soal = (ImageView) findViewById(R.id.soal);
         jwbn1 = (ImageButton) findViewById(R.id.jawaban1);
         jwbn2 = (ImageButton) findViewById(R.id.jawaban2);
@@ -39,89 +37,83 @@ public class PerkalianActivity extends AppCompatActivity {
 
         final MediaPlayer soundButton = MediaPlayer.create(this, R.raw.buttonclicksound);
 
-        newlevel();
-
         jwbn1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Correct(j1==s);
+            public void onClick(View v) {
+                soalOnclick(jwbn1, soalKali);
             }
         });
 
         jwbn2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Correct(j2==s);
+            public void onClick(View v) {
+                soalOnclick(jwbn2, soalKali);
             }
         });
 
         jwbn3.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Correct(j3==s);
+            public void onClick(View v) {
+                soalOnclick(jwbn3, soalKali);
             }
         });
 
         jwbn4.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Correct(j4==s);
+            public void onClick(View v) {
+                soalOnclick(jwbn4, soalKali);
             }
         });
+
+        newlevel();
+
+        updateSkor();
     }
 
-    public void newlevel(){
-        s = soalKali.getrandomsoal();
-        s1 = soalKali.getrandomsoal();
-        int i = new Random().nextInt(4) +1;
-
-        if (i==1){
-            j1 = s;
+    private void newlevel(){
+        if (nomorSoal < soalKali.getJumlahSoal()){
+            soal.setBackgroundResource(soalKali.getSoal(nomorSoal));
+            jwbn1.setBackgroundResource(soalKali.getPilihan(nomorSoal, 1));
+            jwbn2.setBackgroundResource(soalKali.getPilihan(nomorSoal, 2));
+            jwbn3.setBackgroundResource(soalKali.getPilihan(nomorSoal, 3));
+            jwbn4.setBackgroundResource(soalKali.getPilihan(nomorSoal, 4));
+            jawabanBenar = soalKali.getJawaban(nomorSoal);
+            nomorSoal++;
+        }else {
+            Intent intent = new Intent(getApplicationContext(), HighScoreKaliActivity.class);
+            intent.putExtra("Skor", skor);
+            startActivity(intent);
         }
-        else {
-            j1 = soalKali.getrandomsoal();
-        }
-        if (i==2){
-            j2 = s;
-        }
-        else {
-            j2 = soalKali.getrandomsoal();
-        }
-        if (i==3){
-            j3 = s;
-        }
-        else {
-            j3 = soalKali.getrandomsoal();
-        }
-        if (i==4){
-            j4 = s;
-        }
-        else {
-            j4 = soalKali.getrandomsoal();
-        }
-
-        soal.setBackgroundResource(soalKali.getimagesoal(s));
-        jwbn1.setBackgroundResource(soalKali.getimagejawaban(j1));
-        jwbn2.setBackgroundResource(soalKali.getimagejawaban(j2));
-        jwbn3.setBackgroundResource(soalKali.getimagejawaban(j3));
-        jwbn4.setBackgroundResource(soalKali.getimagejawaban(j4));
     }
-
-    public void Correct(boolean input){
-        TextView tampil_nilai = (TextView) findViewById(R.id.nilai);
-
-        if (input && i <n){
+    private void updateSkor(){
+        Skor.setText("Skor :" +skor);
+    }
+    public void soalOnclick(ImageButton imageButton, SoalKali soalKali){
+        int a = 0;
+        if (imageButton == jwbn1){
+            a = 1;
+        }
+        else if(imageButton == jwbn2){
+            a = 2;
+        }
+        else if(imageButton == jwbn3){
+            a = 3;
+        }
+        else if (imageButton == jwbn4){
+            a = 4;
+        }
+        int jawaban = soalKali.getPilihan(nomorSoal-1, a);
+        if (jawaban == jawabanBenar){
+            skor = skor + 10;
             MediaPlayer benar = MediaPlayer.create(getBaseContext(),R.raw.soundbenar);
-            skor +=10;
             benar.start();
             newlevel();
-            i++;
+            updateSkor();
         }else{
             MediaPlayer salah = MediaPlayer.create(getBaseContext(),R.raw.soundsalah);
-            skor -=5;
+            skor = skor - 5;
             salah.start();
+            updateSkor();
         }
-
-        tampil_nilai.setText("SKOR : " +skor);
     }
 }
