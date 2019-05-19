@@ -16,7 +16,9 @@ public class BelajarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_belajar);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         final MediaPlayer soundButton = MediaPlayer.create(this, R.raw.buttonclicksound);
+
         click = (ImageButton) findViewById(R.id.menu_penambahan);
         click.setOnClickListener(new View.OnClickListener() {
             @Override

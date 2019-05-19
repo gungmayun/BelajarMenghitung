@@ -2,19 +2,35 @@ package com.example.gungmayun.belajarmenghitung;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class HighScoreTambahActivity extends AppCompatActivity {
+    private ImageButton back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_high_score_tambah);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        back = (ImageButton) findViewById(R.id.buttonBack);
+
+        final MediaPlayer soundButton = MediaPlayer.create(this, R.raw.buttonclicksound);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HighScoreTambahActivity.this, BelajarActivity.class);
+                startActivity(intent);
+            }
+        });
+
         TextView skorMu = (TextView) findViewById(R.id.skormu);
         TextView skorTinggi = (TextView) findViewById(R.id.skortinggi);
 

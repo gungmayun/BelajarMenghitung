@@ -22,12 +22,15 @@ public class PenambahanActivity extends AppCompatActivity {
     private int jawabanBenar;
     private int skor = 0;
     private int nomorSoal = 0;
+    private ImageButton back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_penambahan);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        back = (ImageButton) findViewById(R.id.buttonBack);
 
         Skor = (TextView) findViewById(R.id.nilai);
         soal = (ImageView) findViewById(R.id.soal);
@@ -37,6 +40,14 @@ public class PenambahanActivity extends AppCompatActivity {
         jwbn4 = (ImageButton) findViewById(R.id.jawaban4);
 
         final MediaPlayer soundButton = MediaPlayer.create(this, R.raw.buttonclicksound);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PenambahanActivity.this, BelajarActivity.class);
+                startActivity(intent);
+            }
+        });
 
         jwbn1.setOnClickListener(new View.OnClickListener() {
             @Override

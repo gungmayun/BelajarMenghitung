@@ -48,13 +48,4 @@
                 android:contentDescription="@string/perkalian" />
         </LinearLayout>
     </HorizontalScrollView>
-
-    <ImageButton
-        android:id="@+id/buttonBack"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:background="@drawable/back"
-        android:contentDescription="@string/back" />
 </RelativeLayout>
